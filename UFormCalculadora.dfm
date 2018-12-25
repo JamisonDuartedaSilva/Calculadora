@@ -220,6 +220,7 @@ object FormCalculadora: TFormCalculadora
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 12
+    OnClick = btSomaClick
   end
   object btSubtracao: TButton
     Left = 251
@@ -234,6 +235,7 @@ object FormCalculadora: TFormCalculadora
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 13
+    OnClick = btSubtracaoClick
   end
   object btMultiplicar: TButton
     Left = 251
@@ -248,6 +250,7 @@ object FormCalculadora: TFormCalculadora
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 14
+    OnClick = btMultiplicarClick
   end
   object btDivisao: TButton
     Left = 251
@@ -262,6 +265,7 @@ object FormCalculadora: TFormCalculadora
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 15
+    OnClick = btDivisaoClick
   end
   object btResultado: TButton
     Left = 332
@@ -276,6 +280,7 @@ object FormCalculadora: TFormCalculadora
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 16
+    OnClick = btResultadoClick
   end
   object btApagar: TButton
     Left = 332

@@ -39,8 +39,14 @@ type
     procedure bt9Click(Sender: TObject);
     procedure bt0Click(Sender: TObject);
     procedure btLimparClick(Sender: TObject);
+    procedure btSomaClick(Sender: TObject);
+    procedure btSubtracaoClick(Sender: TObject);
+    procedure btMultiplicarClick(Sender: TObject);
+    procedure btDivisaoClick(Sender: TObject);
+    procedure btResultadoClick(Sender: TObject);
   private
     procedure AcrescentarValores(Valor : double);
+    procedure AcrecentarOperacoes(Operacao : string);
 
   public
     { Public declarations }
@@ -48,12 +54,46 @@ type
 
 var
   FormCalculadora: TFormCalculadora;
+  bJaPossuiOperador: bool;
+  valor1: double;
+  valor2: double;
 
 implementation
 
 {$R *.dfm}
 
 { TFormCalculadora }
+uses
+  StrUtils;
+
+procedure TFormCalculadora.AcrecentarOperacoes(Operacao: string);
+
+var
+  I : integer;
+  valorExibido : string;
+begin
+  valorExibido := edResutado.Text;
+  if valorExibido = EmptyStr then
+    exit;
+  
+  if not bJaPossuiOperador then
+  begin
+    valorExibido := valorExibido + Operacao;
+    bJaPossuiOperador := true;
+  end
+  else
+  begin
+    for I := 0 to Length(valorExibido) do
+    begin
+      if (valorExibido[i] in ['-','/','*','+']) then
+      begin
+        valorExibido[I] := Operacao[1];
+      end    
+    end;
+  end;
+  
+  edResutado.Text :=  valorExibido;
+end;
 
 procedure TFormCalculadora.AcrescentarValores(Valor : double);
 begin
@@ -111,9 +151,37 @@ begin
   AcrescentarValores(9.0);
 end;
 
+procedure TFormCalculadora.btDivisaoClick(Sender: TObject);
+begin
+  AcrecentarOperacoes('/');
+end;
+
 procedure TFormCalculadora.btLimparClick(Sender: TObject);
 begin
   edResutado.Text := EmptyStr;
+  bJaPossuiOperador := false;
+end;
+
+procedure TFormCalculadora.btMultiplicarClick(Sender: TObject);
+begin
+  AcrecentarOperacoes('*');
+end;
+
+procedure TFormCalculadora.btResultadoClick(Sender: TObject);
+var
+  resultado : double;
+begin
+  resultado := StrToFloat(edResutado.Text);
+end;
+
+procedure TFormCalculadora.btSomaClick(Sender: TObject);
+begin
+  AcrecentarOperacoes('+');
+end;
+
+procedure TFormCalculadora.btSubtracaoClick(Sender: TObject);
+begin
+  AcrecentarOperacoes('-');
 end;
 
 end.
