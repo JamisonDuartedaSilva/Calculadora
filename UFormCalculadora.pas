@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, UOperacoesMatematicas;
 
 type
   TFormCalculadora = class(TForm)
@@ -44,9 +44,11 @@ type
     procedure btMultiplicarClick(Sender: TObject);
     procedure btDivisaoClick(Sender: TObject);
     procedure btResultadoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure btVirgulaClick(Sender: TObject);
+    procedure btApagarClick(Sender: TObject);
   private
-    procedure AcrescentarValores(Valor : double);
-    procedure AcrecentarOperacoes(Operacao : string);
 
   public
     { Public declarations }
@@ -55,8 +57,8 @@ type
 var
   FormCalculadora: TFormCalculadora;
   bJaPossuiOperador: bool;
-  valor1: double;
-  valor2: double;
+  OperacoesMat : TOperacoesMatematicas;
+ 
 
 implementation
 
@@ -66,94 +68,79 @@ implementation
 uses
   StrUtils;
 
-procedure TFormCalculadora.AcrecentarOperacoes(Operacao: string);
-
-var
-  I : integer;
-  valorExibido : string;
-begin
-  valorExibido := edResutado.Text;
-  if valorExibido = EmptyStr then
-    exit;
-  
-  if not bJaPossuiOperador then
-  begin
-    valorExibido := valorExibido + Operacao;
-    bJaPossuiOperador := true;
-  end
-  else
-  begin
-    for I := 0 to Length(valorExibido) do
-    begin
-      if (valorExibido[i] in ['-','/','*','+']) then
-      begin
-        valorExibido[I] := Operacao[1];
-      end    
-    end;
-  end;
-  
-  edResutado.Text :=  valorExibido;
-end;
-
-procedure TFormCalculadora.AcrescentarValores(Valor : double);
-begin
-  edResutado.Text := edResutado.Text +  FloatToStr(Valor);
-end;
 
 procedure TFormCalculadora.bt0Click(Sender: TObject);
+
 begin
-  AcrescentarValores(0.0);
+  OperacoesMat.AcrescentarValores(0.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt1Click(Sender: TObject);
 begin
-  AcrescentarValores(1.0);
+  OperacoesMat.AcrescentarValores(1.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt2Click(Sender: TObject);
 begin
-  AcrescentarValores(2.0);
+  OperacoesMat.AcrescentarValores(2.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt3Click(Sender: TObject);
 begin
-  AcrescentarValores(3.0);
+  OperacoesMat.AcrescentarValores(3.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt4Click(Sender: TObject);
 begin
-  AcrescentarValores(4.0);
+  OperacoesMat.AcrescentarValores(4.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt5Click(Sender: TObject);
 begin
-  AcrescentarValores(5.0);
+  OperacoesMat.AcrescentarValores(5.0,edResutado);
 end;
 
 
 procedure TFormCalculadora.bt6Click(Sender: TObject);
 begin
-   AcrescentarValores(6.0);
+  OperacoesMat.AcrescentarValores(6.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt7Click(Sender: TObject);
 begin
-  AcrescentarValores(7.0);
+  OperacoesMat.AcrescentarValores(7.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt8Click(Sender: TObject);
 begin
-  AcrescentarValores(8.0);
+  OperacoesMat.AcrescentarValores(8.0,edResutado);
 end;
 
 procedure TFormCalculadora.bt9Click(Sender: TObject);
 begin
-  AcrescentarValores(9.0);
+  OperacoesMat.AcrescentarValores(9.0,edResutado);
+end;
+
+procedure TFormCalculadora.btApagarClick(Sender: TObject);
+var
+  ValorEdit : string;
+begin
+  if edResutado.Text = EmptyStr then
+    Exit;
+
+
+  ValorEdit := edResutado.Text;
+
+  if (ValorEdit[Length(ValorEdit)] in ['-','/','*','+']) then
+    OperacoesMat.bJaPossuiOperador := false;
+
+  Delete(ValorEdit,Length(ValorEdit),1);
+  edResutado.Text := ValorEdit;
 end;
 
 procedure TFormCalculadora.btDivisaoClick(Sender: TObject);
 begin
-  AcrecentarOperacoes('/');
+  OperacoesMat.AcrecentarOperacoes('/',edResutado);
 end;
 
 procedure TFormCalculadora.btLimparClick(Sender: TObject);
@@ -164,24 +151,38 @@ end;
 
 procedure TFormCalculadora.btMultiplicarClick(Sender: TObject);
 begin
-  AcrecentarOperacoes('*');
+  OperacoesMat.AcrecentarOperacoes('*',edResutado);
 end;
 
 procedure TFormCalculadora.btResultadoClick(Sender: TObject);
-var
-  resultado : double;
+
 begin
-  resultado := StrToFloat(edResutado.Text);
+  OperacoesMat.CalcularResultado(edResutado);
 end;
 
 procedure TFormCalculadora.btSomaClick(Sender: TObject);
 begin
-  AcrecentarOperacoes('+');
+  OperacoesMat.AcrecentarOperacoes('+',edResutado);
 end;
 
 procedure TFormCalculadora.btSubtracaoClick(Sender: TObject);
 begin
-  AcrecentarOperacoes('-');
+  OperacoesMat.AcrecentarOperacoes('-',edResutado);
+end;
+
+procedure TFormCalculadora.btVirgulaClick(Sender: TObject);
+begin
+  edResutado.Text := edResutado.Text + ',';
+end;
+
+procedure TFormCalculadora.FormCreate(Sender: TObject);
+begin
+  OperacoesMat := TOperacoesMatematicas.Create;
+end;
+
+procedure TFormCalculadora.FormDestroy(Sender: TObject);
+begin
+  OperacoesMat.Free;
 end;
 
 end.

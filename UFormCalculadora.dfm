@@ -4,8 +4,8 @@ object FormCalculadora: TFormCalculadora
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Calculadora'
-  ClientHeight = 365
-  ClientWidth = 417
+  ClientHeight = 378
+  ClientWidth = 416
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,14 +14,16 @@ object FormCalculadora: TFormCalculadora
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object lbResultado: TLabel
     Left = 8
     Top = 13
-    Width = 65
+    Width = 74
     Height = 16
-    Caption = 'Resultado'
+    Caption = 'RESULTADO'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -33,11 +35,11 @@ object FormCalculadora: TFormCalculadora
     Left = 8
     Top = 32
     Width = 399
-    Height = 27
+    Height = 50
     Enabled = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -16
+    Font.Height = -35
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
@@ -45,7 +47,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt1: TButton
     Left = 8
-    Top = 72
+    Top = 88
     Width = 75
     Height = 65
     Caption = '1'
@@ -60,7 +62,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt2: TButton
     Left = 89
-    Top = 72
+    Top = 88
     Width = 75
     Height = 65
     Caption = '2'
@@ -75,7 +77,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt3: TButton
     Left = 170
-    Top = 72
+    Top = 88
     Width = 75
     Height = 65
     Caption = '3'
@@ -90,7 +92,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt4: TButton
     Left = 8
-    Top = 143
+    Top = 159
     Width = 75
     Height = 65
     Caption = '4'
@@ -105,7 +107,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt5: TButton
     Left = 89
-    Top = 143
+    Top = 159
     Width = 75
     Height = 65
     Caption = '5'
@@ -120,7 +122,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt6: TButton
     Left = 170
-    Top = 143
+    Top = 159
     Width = 75
     Height = 65
     Caption = '6'
@@ -135,7 +137,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt7: TButton
     Left = 8
-    Top = 214
+    Top = 230
     Width = 75
     Height = 65
     Caption = '7'
@@ -150,7 +152,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt8: TButton
     Left = 89
-    Top = 214
+    Top = 230
     Width = 75
     Height = 65
     Caption = '8'
@@ -165,7 +167,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt9: TButton
     Left = 170
-    Top = 214
+    Top = 230
     Width = 75
     Height = 65
     Caption = '9'
@@ -180,7 +182,7 @@ object FormCalculadora: TFormCalculadora
   end
   object bt0: TButton
     Left = 89
-    Top = 285
+    Top = 301
     Width = 75
     Height = 65
     Caption = '0'
@@ -195,7 +197,7 @@ object FormCalculadora: TFormCalculadora
   end
   object btVirgula: TButton
     Left = 8
-    Top = 285
+    Top = 301
     Width = 75
     Height = 65
     Caption = ','
@@ -206,10 +208,11 @@ object FormCalculadora: TFormCalculadora
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 11
+    OnClick = btVirgulaClick
   end
   object btSoma: TButton
     Left = 251
-    Top = 72
+    Top = 88
     Width = 75
     Height = 65
     Caption = '+'
@@ -224,7 +227,7 @@ object FormCalculadora: TFormCalculadora
   end
   object btSubtracao: TButton
     Left = 251
-    Top = 143
+    Top = 159
     Width = 75
     Height = 65
     Caption = '-'
@@ -239,7 +242,7 @@ object FormCalculadora: TFormCalculadora
   end
   object btMultiplicar: TButton
     Left = 251
-    Top = 214
+    Top = 230
     Width = 75
     Height = 65
     Caption = '*'
@@ -254,7 +257,7 @@ object FormCalculadora: TFormCalculadora
   end
   object btDivisao: TButton
     Left = 251
-    Top = 285
+    Top = 301
     Width = 75
     Height = 65
     Caption = '/'
@@ -269,7 +272,7 @@ object FormCalculadora: TFormCalculadora
   end
   object btResultado: TButton
     Left = 332
-    Top = 143
+    Top = 159
     Width = 75
     Height = 65
     Caption = '='
@@ -284,7 +287,7 @@ object FormCalculadora: TFormCalculadora
   end
   object btApagar: TButton
     Left = 332
-    Top = 72
+    Top = 88
     Width = 75
     Height = 65
     Caption = '<='
@@ -295,10 +298,11 @@ object FormCalculadora: TFormCalculadora
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 17
+    OnClick = btApagarClick
   end
   object btLimpar: TButton
     Left = 170
-    Top = 285
+    Top = 301
     Width = 75
     Height = 65
     Caption = 'LIMPAR'

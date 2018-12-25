@@ -2,10 +2,12 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2018/12/22 17:40:25.000.234,=C:\Users\jamis\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2018/12/22 21:03:49.000.635,C:\Users\jamis\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\jamis\Documents\Embarcadero\Studio\Projects\UFormCalculadora.dfm</Transaction>
     <Transaction>2018/12/22 21:03:49.000.635,C:\Users\jamis\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\jamis\Documents\Embarcadero\Studio\Projects\UFormCalculadora.pas</Transaction>
+    <Transaction>2018/12/22 21:03:49.000.635,C:\Users\jamis\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\jamis\Documents\Embarcadero\Studio\Projects\UFormCalculadora.dfm</Transaction>
     <Transaction>2018/12/22 21:04:39.000.101,C:\Users\jamis\Documents\Embarcadero\Studio\Projects\UFormCalculadora.pas=D:\Dropbox\Dropbox\Delphi\Projects\Calculadora\UFormCalculadora.pas</Transaction>
     <Transaction>2018/12/22 21:04:39.000.101,C:\Users\jamis\Documents\Embarcadero\Studio\Projects\UFormCalculadora.dfm=D:\Dropbox\Dropbox\Delphi\Projects\Calculadora\UFormCalculadora.dfm</Transaction>
     <Transaction>2018/12/22 21:13:34.000.214,C:\Users\jamis\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Dropbox\Dropbox\Delphi\Projects\Calculadora\PrCalculadora.dproj</Transaction>
+    <Transaction>2018/12/24 22:18:08.403,=D:\GitHub\Delphi\Projects\CalculadoraEmDelphi\Calculadora\Unit1.pas</Transaction>
+    <Transaction>2018/12/24 22:18:33.896,D:\GitHub\Delphi\Projects\CalculadoraEmDelphi\Calculadora\UOperacoesMatematicas.pas=D:\GitHub\Delphi\Projects\CalculadoraEmDelphi\Calculadora\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

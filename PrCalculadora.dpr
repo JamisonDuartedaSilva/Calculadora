@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   UFormCalculadora in 'UFormCalculadora.pas' {FormCalculadora},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  UOperacoesMatematicas in 'UOperacoesMatematicas.pas';
 
 {$R *.res}
 
