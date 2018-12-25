@@ -5,7 +5,7 @@ object FormCalculadora: TFormCalculadora
   BorderStyle = bsSingle
   Caption = 'Calculadora'
   ClientHeight = 378
-  ClientWidth = 416
+  ClientWidth = 422
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,13 +20,13 @@ object FormCalculadora: TFormCalculadora
   TextHeight = 13
   object lbResultado: TLabel
     Left = 8
-    Top = 13
-    Width = 74
-    Height = 16
+    Top = 8
+    Width = 100
+    Height = 19
     Caption = 'RESULTADO'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
@@ -35,12 +35,12 @@ object FormCalculadora: TFormCalculadora
     Left = 8
     Top = 32
     Width = 399
-    Height = 50
+    Height = 49
     Enabled = False
-    Font.Charset = DEFAULT_CHARSET
+    Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -35
-    Font.Name = 'Tahoma'
+    Font.Name = 'Franklin Gothic Medium'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
@@ -314,5 +314,23 @@ object FormCalculadora: TFormCalculadora
     ParentFont = False
     TabOrder = 18
     OnClick = btLimparClick
+  end
+  object btDark: TButton
+    Left = 332
+    Top = 230
+    Width = 75
+    Height = 65
+    Caption = 'DARK'
+    TabOrder = 19
+    OnClick = btDarkClick
+  end
+  object btLight: TButton
+    Left = 332
+    Top = 301
+    Width = 75
+    Height = 65
+    Caption = 'LIGHT'
+    TabOrder = 20
+    OnClick = btLightClick
   end
 end

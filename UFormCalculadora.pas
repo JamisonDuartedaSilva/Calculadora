@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, UOperacoesMatematicas;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, UOperacoesMatematicas, Vcl.Themes;
 
 type
   TFormCalculadora = class(TForm)
@@ -28,6 +28,8 @@ type
     btResultado: TButton;
     btApagar: TButton;
     btLimpar: TButton;
+    btDark: TButton;
+    btLight: TButton;
     procedure bt1Click(Sender: TObject);
     procedure bt2Click(Sender: TObject);
     procedure bt5Click(Sender: TObject);
@@ -48,6 +50,8 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure btVirgulaClick(Sender: TObject);
     procedure btApagarClick(Sender: TObject);
+    procedure btDarkClick(Sender: TObject);
+    procedure btLightClick(Sender: TObject);
   private
 
   public
@@ -138,9 +142,19 @@ begin
   edResutado.Text := ValorEdit;
 end;
 
+procedure TFormCalculadora.btDarkClick(Sender: TObject);
+begin
+  TStyleManager.TrySetStyle('Onyx Blue');
+end;
+
 procedure TFormCalculadora.btDivisaoClick(Sender: TObject);
 begin
   OperacoesMat.AcrecentarOperacoes('/',edResutado);
+end;
+
+procedure TFormCalculadora.btLightClick(Sender: TObject);
+begin
+  TStyleManager.TrySetStyle('Tablet Light');
 end;
 
 procedure TFormCalculadora.btLimparClick(Sender: TObject);
